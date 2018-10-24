@@ -19,39 +19,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        input = findViewById(R.id.et_address);
+        input = (EditText) findViewById(R.id.et_address);
         nextButton = (Button) findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 // method
-
                 // create URL
-
                 // pass it to the client
-
                 // get lat and long
-
                 // bundle
                 Intent intent = new Intent(v.getContext(), mapActivity.class);
-                String pass = createURL();
-                intent.putExtra("address", pass);
+
+                address = input.getText().toString();
+                intent.putExtra("address", address);
                 startActivity(intent);
-
                 // put into map activity
-
             }
         });
     }
 
-
-
-
-    public static String createURL(){
-        String url = null;
-        address = String.valueOf(input);
-
-        url = baseUrl + "1600+Amphitheatre+Parkway,+Mountain+View,+CA" + "=" + "&key=" + apiKey;
-        return url;
-    }
+//    public static String createURL(){
+//        String url = null;
+//        address = String.valueOf(input);
+//        url = baseUrl + "1600+Amphitheatre+Parkway,+Mountain+View,+CA" + "=" + "&key=" + apiKey;
+//        return url;
+//    }
 }
