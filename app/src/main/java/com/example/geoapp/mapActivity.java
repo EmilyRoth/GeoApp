@@ -1,7 +1,10 @@
 package com.example.geoapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -13,7 +16,11 @@ public class mapActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SupportMapFragment map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map));
+      //  SupportMapFragment map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map));
+        Intent intent = getIntent();
+        String address = intent.getStringExtra("address");
+        TextView tv = findViewById(R.id.textView);
+        tv.setText(address);
         setContentView(R.layout.activity_map);
     }
 }
